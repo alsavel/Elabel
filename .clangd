@@ -1,0 +1,4 @@
+CompileFlags:
+  CompilationDatabase: /home/uzer/Ei-ws/Elabel/build
+  Remove: [-m*, -f*]
+  BuiltinHeaders: QueryDriver

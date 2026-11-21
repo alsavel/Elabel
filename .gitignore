@@ -1,0 +1,7 @@
+build/
+sdkconfig.old
+.cproject
+.project
+.settings/
+*.bak
+*ZZ
