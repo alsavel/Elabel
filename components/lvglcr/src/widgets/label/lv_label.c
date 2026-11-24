@@ -20,12 +20,12 @@
 #include "../../misc/lv_color.h"
 #include "../../misc/lv_math.h"
 #include "../../misc/lv_bidi_private.h"
-#include "../../misc/lv_text_ap.h"
+//#include "../../misc/lv_text_ap.h"
 #include "../../misc/lv_text_private.h"
 #include "../../stdlib/lv_sprintf.h"
 #include "../../stdlib/lv_string.h"
 #include "../../core/lv_observer_private.h"
-#include "../../others/translation/lv_translation.h"
+//#include "../../others/translation/lv_translation.h"
 
 /*********************
  *      DEFINES

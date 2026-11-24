@@ -7,7 +7,7 @@
  *      INCLUDES
  *********************/
 #include "lv_text_private.h"
-#include "lv_text_ap.h"
+//#include "lv_text_ap.h"
 #include "lv_math.h"
 #include "lv_log.h"
 #include "lv_assert.h"

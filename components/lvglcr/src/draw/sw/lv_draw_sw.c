@@ -20,7 +20,7 @@
     #if LV_USE_THORVG_EXTERNAL
         #include <thorvg_capi.h>
     #else
-        #include "../../libs/thorvg/thorvg_capi.h"
+//        #include "../../libs/thorvg/thorvg_capi.h"
     #endif
 #endif
 

@@ -12,7 +12,7 @@
 #include "../core/lv_global.h"
 #include "../misc/lv_math.h"
 #include "../misc/lv_area_private.h"
-#include "convert/lv_draw_buf_convert.h"
+//#include "convert/lv_draw_buf_convert.h"
 
 /*********************
  *      DEFINES
@@ -478,8 +478,10 @@ lv_result_t lv_draw_buf_premultiply(lv_draw_buf_t * draw_buf)
     }
 
     LV_PROFILER_DRAW_BEGIN;
-
-    lv_result_t res = lv_draw_buf_convert_premultiply(draw_buf);
+	
+	
+    //lv_result_t res = lv_draw_buf_convert_premultiply(draw_buf);
+	lv_result_t res = LV_RESULT_INVALID;
     if(res == LV_RESULT_OK) {
         lv_area_t area = {0, 0, draw_buf->header.w - 1, draw_buf->header.h - 1};
         if(LV_COLOR_FORMAT_IS_INDEXED(draw_buf->header.cf)) {

@@ -13,8 +13,8 @@
 
 #if LV_USE_FREETYPE && LV_USE_VECTOR_GRAPHIC && LV_USE_THORVG
 
-    #include "../../libs/freetype/lv_freetype_private.h"
-    #include "../lv_draw_vector_private.h"
+//    #include "../../libs/freetype/lv_freetype_private.h"
+//    #include "../lv_draw_vector_private.h"
 
 #endif
 

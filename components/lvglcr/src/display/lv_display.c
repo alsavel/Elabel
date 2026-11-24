@@ -15,9 +15,9 @@
 #include "../misc/lv_math.h"
 #include "../core/lv_refr_private.h"
 #include "../stdlib/lv_string.h"
-#include "../themes/lv_theme.h"
+//#include "../themes/lv_theme.h"
 #include "../core/lv_global.h"
-#include "../debugging/sysmon/lv_sysmon.h"
+//#include "../debugging/sysmon/lv_sysmon.h"
 
 #if LV_USE_DRAW_SW
     #include "../draw/sw/lv_draw_sw.h"
@@ -1045,6 +1045,9 @@ void lv_display_set_theme(lv_display_t * disp, lv_theme_t * th)
 
     disp->theme = th;
 
+	void lv_theme_apply(lv_obj_t * obj);
+
+	
     if(disp->screen_cnt == 4 &&
        lv_obj_get_child_count(disp->screens[0]) == 0 &&
        lv_obj_get_child_count(disp->screens[1]) == 0 &&

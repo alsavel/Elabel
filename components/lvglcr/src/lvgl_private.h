@@ -24,7 +24,7 @@ extern "C" {
 #include "core/lv_global.h"
 
 #include "display/lv_display_private.h"
-#include "indev/lv_indev_private.h"
+//#include "indev/lv_indev_private.h"
 
 #include "draw/lv_draw_private.h"
 #include "draw/lv_draw_buf_private.h"
@@ -42,12 +42,12 @@ extern "C" {
 #include "misc/lv_style_private.h"
 #include "misc/lv_text_private.h"
 #include "misc/lv_timer_private.h"
-#include "misc/cache/lv_cache_private.h"
-#include "misc/cache/lv_cache_entry_private.h"
+//#include "misc/cache/lv_cache_private.h"
+//#include "misc/cache/lv_cache_entry_private.h"
 
 #include "osal/lv_os_private.h"
 #include "stdlib/lv_mem_private.h"
-#include "themes/lv_theme_private.h"
+//#include "themes/lv_theme_private.h"
 #include "tick/lv_tick_private.h"
 
 #include "widgets/label/lv_label_private.h"

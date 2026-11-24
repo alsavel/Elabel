@@ -131,7 +131,7 @@ static void worker_task_core(void *pvParameters)
 // Диагностика свободной памяти ESP32-S3
 static void print_memory_info(void)
 {
-    printf("\n======21-11========== ESP32-S3 MEMORY INFO ================\n");
+    printf("\n======24-11========== ESP32-S3 MEMORY INFO ================\n");
     printf("Internal RAM free:     %6u KB (min: %u KB)\n",
            heap_caps_get_free_size(MALLOC_CAP_INTERNAL) / 1024,
            heap_caps_get_minimum_free_size(MALLOC_CAP_INTERNAL) / 1024);
@@ -148,7 +148,7 @@ static void print_memory_info(void)
     } else {
         printf("External PSRAM:        Not enabled / Not detected\n");
     }
-    printf("======================================================\n\n");
+    printf("======================================================\n");
 }
 
 // Вывод списка всех задач FreeRTOS в Serial-консоль
@@ -162,9 +162,8 @@ static void print_tasks_to_serial(void)
         return;
     }
     task_count = uxTaskGetSystemState(status_array, task_count, NULL);
-    printf("\n========== FREERTOS TASKS (%u) ===========\n", (unsigned int)task_count);
+    printf("\n====24.11==== FREERTOS TAZKS (%u) ===========\n", (unsigned int)task_count);
     printf("%-16s | %-4s | %-7s | %-4s | %-8s\n", "Name", "Core", "State", "Prio", "MinStack");
-    printf("-----------------------------------------------------\n");
     for (UBaseType_t i = 0; i < task_count; i++) {
         const char *state_str = "Unknown";
         switch (status_array[i].eCurrentState) {
@@ -190,7 +189,7 @@ static void print_tasks_to_serial(void)
                (unsigned int)status_array[i].uxCurrentPriority,
                (unsigned int)status_array[i].usStackHighWaterMark);
     }
-    printf("=====================================================\n\n");
+    printf("=====================================================\n");
     free(status_array);
 #endif
 }
@@ -321,10 +320,10 @@ void app_main(void)
     init_clear_button();
 
     // Запускаем две рабочие задачи на разных ядрах ESP32-S3
-    static const worker_params_t par_c0 = {   .prefix = "tASK0-",   .delay_ms = 2300    };
-    static const worker_params_t par_c1 = {   .prefix = "tASK1",   .delay_ms = 1300    };
-    xTaskCreatePinnedToCore(worker_task_core, "taska-0", 3072, (void*)&par_c0, 7, NULL, 0);
-    xTaskCreatePinnedToCore(worker_task_core, "taska-1", 3072, (void*)&par_c1, 6, NULL, 1);
+    static const worker_params_t par_c0 = {   .prefix = "tASK0>",   .delay_ms = 2300    };
+    static const worker_params_t par_c1 = {   .prefix = "tASK1>",   .delay_ms = 1300    };
+    xTaskCreatePinnedToCore(worker_task_core, "tasK-0", 3072, (void*)&par_c0, 7, NULL, 0);
+    xTaskCreatePinnedToCore(worker_task_core, "taZK-1", 3072, (void*)&par_c1, 6, NULL, 1);
 
     int64_t last_tasks_dump_us = esp_timer_get_time();
     char buff_for_data_read[LOG_LINE_MAX_LEN];

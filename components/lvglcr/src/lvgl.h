@@ -26,8 +26,8 @@ extern "C" {
 #include "misc/lv_async.h"
 #include "misc/lv_rb.h"
 #include "misc/lv_utils.h"
-#include "misc/lv_iter.h"
-#include "misc/lv_circle_buf.h"
+//#include "misc/lv_iter.h"
+//#include "misc/lv_circle_buf.h"
 #include "misc/lv_tree.h"
 
 #include "osal/lv_os.h"
@@ -36,7 +36,7 @@ extern "C" {
 #include "core/lv_obj.h"
 #include "core/lv_group.h"
 #include "core/lv_refr.h"
-#include "indev/lv_indev.h"
+//#include "indev/lv_indev.h"
 #include "display/lv_display.h"
 
 #include "font/lv_font.h"
@@ -44,12 +44,12 @@ extern "C" {
 
 #include "widgets/label/lv_label.h"
 
-#include "layouts/lv_layout.h"
+//#include "layouts/lv_layout.h"
 
 #include "draw/lv_draw_buf.h"
 #include "draw/sw/lv_draw_sw_utils.h"
 
-#include "themes/lv_theme.h"
+//#include "themes/lv_theme.h"
 
 #if LV_USE_PRIVATE_API
 #include "lvgl_private.h"
