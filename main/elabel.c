@@ -122,7 +122,7 @@ static void worker_task_core(void *pvParameters)
     uint32_t step = 0;
     while (1) {
         size_t free_heap = esp_get_free_heap_size() / 1024;
-		send_msg_to_log_queue("+[%s] (%d) %s, step-%lu Heap%zuKB", pcTaskGetName(NULL), xPortGetCoreID(),
+		send_msg_to_log_queue("%s, %d, %s, step-%lu Heap%zuKB", pcTaskGetName(NULL), xPortGetCoreID(),
 				params->prefix, step++, free_heap);
         vTaskDelay(pdMS_TO_TICKS(params->delay_ms));
     }
@@ -182,12 +182,8 @@ static void print_tasks_to_serial(void)
             strcpy(core_str, "1");
         }
 
-        printf("%-16s | %-4s | %-7s | %-4u | %-8u\n",
-               status_array[i].pcTaskName,
-               core_str,
-               state_str,
-               (unsigned int)status_array[i].uxCurrentPriority,
-               (unsigned int)status_array[i].usStackHighWaterMark);
+        printf("%-16s | %-4s | %-7s | %-4u | %-8u\n", status_array[i].pcTaskName,core_str, state_str,
+               (unsigned int)status_array[i].uxCurrentPriority, (unsigned int)status_array[i].usStackHighWaterMark);
     }
     printf("=====================================================\n");
     free(status_array);
@@ -309,6 +305,7 @@ void app_main(void)
     scrLabel = lv_label_create(scr);
     lv_obj_set_width(scrLabel, LCD_H_RES - 10);
     lv_label_set_long_mode(scrLabel, LV_LABEL_LONG_MODE_WRAP);
+	lv_obj_set_style_text_font(scrLabel, &lv_font_montserrat_12, 0);
     lv_obj_set_style_text_color(scrLabel, lv_color_hex(0x00FF66), LV_PART_MAIN);
     lv_obj_set_style_text_align(scrLabel, LV_TEXT_ALIGN_LEFT, 0);
     lv_obj_align(scrLabel, LV_ALIGN_TOP_LEFT, 5, 4);
@@ -322,7 +319,7 @@ void app_main(void)
     // Запускаем две рабочие задачи на разных ядрах ESP32-S3
     static const worker_params_t par_c0 = {   .prefix = "tASK0>",   .delay_ms = 2300    };
     static const worker_params_t par_c1 = {   .prefix = "tASK1>",   .delay_ms = 1300    };
-    xTaskCreatePinnedToCore(worker_task_core, "tasK-0", 3072, (void*)&par_c0, 7, NULL, 0);
+    xTaskCreatePinnedToCore(worker_task_core, "tasK<<0", 3072, (void*)&par_c0, 7, NULL, 0);
     xTaskCreatePinnedToCore(worker_task_core, "taZK-1", 3072, (void*)&par_c1, 6, NULL, 1);
 
     int64_t last_tasks_dump_us = esp_timer_get_time();
